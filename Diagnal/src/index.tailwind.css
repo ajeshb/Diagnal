@@ -1,0 +1,10 @@
+@tailwind preflight;
+
+/* Here we can add any custom overrides */
+.navbar {
+    @apply .w-screen .bg-no-repeat;
+  }
+
+@tailwind utilities;
+
+/* Here we can add our own utilities or custom CSS */

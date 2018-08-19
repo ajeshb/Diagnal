@@ -1,36 +1,74 @@
-import React from "react";
-import "./HomeComponent.css";
+import React from 'react'
+import './HomeComponent.css'
 
 class HomeComponent extends React.Component {
-  render() {
+  constructor (props) {
+    super(props)
+    this.state = {
+      heading: 'Romantic Commedy',
+      videoList: [],
+      totalVideos: 0
+    }
+  }
+  componentDidMount () {
+    this.getCollectionsApi(1)
+  }
+  showUser = () => {
+    console.log("videos", this.state.videoList)
+  }
+  getCollectionsApi = pageNumber => {
+    const requestUrl = `./../Data/file${pageNumber}.json`
+    const response = require('./../../src/Data/file1.json')
+    // import(`${requestUrl}`).then(
+    //   response => {
+    //     debugger
+        const pageData = response.page
+        const initialVideos = this.state.videoList
+        const newVideos = pageData['content-items']['content']
+        
+        this.setState({
+          videoList: [...initialVideos, ...newVideos],
+          heading: pageData.title,
+          totalVideos: pageData['total-content-items']
+        })
+    //   },
+    //   error => {
+    //     debugger
+    //     console.log('error', error)
+    //   }
+    // )
+  }
+  render () {
+    console.log("videos", this.state.videoList)
+    console.log("rendering")
     return (
-           <div className="flex items-center h-screen w-full bg-teal-lighter">
-      <div className="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
-        <h1 className="block w-full text-center text-grey-darkest mb-6">Sign Up</h1>
-        <form className="mb-4 md:flex md:flex-wrap md:justify-between" action="/" method="post">
-          <div className="field-group mb-4 md:w-1/2">
-            <label className="field-label" for="first_name">First Name</label>
-            <input className="field md:mr-2" type="text" name="first_name" id="first_name"/>
+      <div className='container'>
+        <div className='navbar'>
+          <input
+            type='button'
+            name='button'
+            onClick={this.showUser}
+            className='back-button'
+          />
+          <h1 className='heading'>{this.state.heading}</h1>
+          <input
+            type='button'
+            name='button'
+            onClick={this.showUser}
+            className='search-button'
+          />
+        </div>
+        <div className='list-container'>
+          <div className="scroll-list">
+          { this.state.videoList.map( (video, index) => {
+             return <div key={index} className="video-cell">
+              </div>
+          })}
           </div>
-          <div className="field-group mb-4 md:w-1/2">
-            <label className="field-label md:ml-2" for="last_name">Last Name</label>
-            <input className="field md:ml-2" type="text" name="last_name" id="last_name"/>
-          </div>
-          <div className="field-group mb-4 md:w-full">
-            <label className="field-label" for="email">Email</label>
-            <input class="field" type="email" name="email" id="email"/>
-          </div>
-          <div className="field-group mb-6 md:w-full">
-            <label className="field-label" for="password">Password</label>
-            <input className="field" type="password" name="password" id="password"/>
-          </div>
-          <button className="btn btn-teal mx-auto" type="submit">Create Account</button>
-        </form>
-        <a className="link link-grey w-full text-center" href="/login">Already have an account?</a>
-    </div>
-  </div>
-    );
+        </div>
+      </div>
+    )
   }
 }
 
-export const Home = HomeComponent;
+export const Home = HomeComponent

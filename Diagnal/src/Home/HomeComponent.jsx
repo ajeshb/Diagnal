@@ -18,7 +18,7 @@ class HomeComponent extends React.Component {
   }
   getCollectionsApi = pageNumber => {
     const requestUrl = `./../Data/file${pageNumber}.json`
-    const response = require('./../../src/Data/file1.json')
+    const response = require('./../../src/Data/CONTENTLISTINGPAGE-PAGE3.json')
     // import(`${requestUrl}`).then(
     //   response => {
     //     debugger
@@ -61,7 +61,17 @@ class HomeComponent extends React.Component {
         <div className='list-container'>
           <div className="scroll-list">
           { this.state.videoList.map( (video, index) => {
+            let image;
+            try{
+              image = require(`./../Images/${video['poster-image']}`);
+            }
+            catch(e) {
+              console.log(e);
+              image = require(`./../Images/placeholder_for_missing_posters.png`);
+            }
              return <div key={index} className="video-cell">
+                <img src={image} alt="image" />
+                <p className="video-name">{video.name}</p>
               </div>
           })}
           </div>

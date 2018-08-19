@@ -1,20 +1,27 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import './HomeComponent.css'
+import { fetch } from '../Redux/actions'
+
 
 class HomeComponent extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      heading: 'Romantic Commedy',
-      videoList: [],
-      totalVideos: 0
-    }
+    // this.state = {
+    //   heading: 'Romantic Commedy',
+    //   videoList: [],
+    //   totalVideos: 0
+    // }
   }
   componentDidMount () {
-    this.getCollectionsApi(1)
+    // this.getCollectionsApi(1)
+    console.log('fetchData', this.props.fetchData);
+    this.props.fetchData(1);
   }
   showUser = () => {
-    console.log("videos", this.state.videoList)
+    this.props.fetchData(2);
+
+    console.log("videos", this.props.videoList)
   }
   getCollectionsApi = pageNumber => {
     const requestUrl = `./../Data/file${pageNumber}.json`
@@ -39,7 +46,7 @@ class HomeComponent extends React.Component {
     // )
   }
   render () {
-    console.log("videos", this.state.videoList)
+    console.log("videos", this.props.videoList)
     console.log("rendering")
     return (
       <div className='container'>
@@ -50,7 +57,7 @@ class HomeComponent extends React.Component {
             onClick={this.showUser}
             className='back-button'
           />
-          <h1 className='heading'>{this.state.heading}</h1>
+          <h1 className='heading'>{this.props.heading}</h1>
           <input
             type='button'
             name='button'
@@ -60,7 +67,7 @@ class HomeComponent extends React.Component {
         </div>
         <div className='list-container'>
           <div className="scroll-list">
-          { this.state.videoList.map( (video, index) => {
+          { this.props.videoList && this.props.videoList.map( (video, index) => {
             let image;
             try{
               image = require(`./../Images/${video['poster-image']}`);
@@ -81,4 +88,24 @@ class HomeComponent extends React.Component {
   }
 }
 
-export const Home = HomeComponent
+// export const Home = HomeComponent
+
+const mapStateToProps = (state, ownProps) => {
+  console.log('eweed', state);
+  return {
+      heading: state.fetchData.heading,
+      videoList: state.fetchData.videoList,
+      totalVideos: state.fetchData.totalVideos
+};
+};
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  fetchData: (params) =>{
+    console.log("inside mdp");
+    dispatch(fetch(params));
+  } 
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeComponent);

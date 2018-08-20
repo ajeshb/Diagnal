@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import './HomeComponent.css'
 import { fetch } from '../Redux/actions'
 
-
 class HomeComponent extends React.Component {
   constructor (props) {
     super(props)
@@ -14,40 +13,28 @@ class HomeComponent extends React.Component {
     // }
   }
   componentDidMount () {
-    // this.getCollectionsApi(1)
-    console.log('fetchData', this.props.fetchData);
-    this.props.fetchData(1);
+    console.log('fetchData', this.props.fetchData)
+    this.props.fetchData(1)
   }
   showUser = () => {
-    this.props.fetchData(2);
+    this.props.fetchData(2)
 
-    console.log("videos", this.props.videoList)
+    console.log('videos', this.props.videoList)
   }
-  getCollectionsApi = pageNumber => {
-    const requestUrl = `./../Data/file${pageNumber}.json`
-    const response = require('./../../src/Data/CONTENTLISTINGPAGE-PAGE3.json')
-    // import(`${requestUrl}`).then(
-    //   response => {
-    //     debugger
-        const pageData = response.page
-        const initialVideos = this.state.videoList
-        const newVideos = pageData['content-items']['content']
-        
-        this.setState({
-          videoList: [...initialVideos, ...newVideos],
-          heading: pageData.title,
-          totalVideos: pageData['total-content-items']
-        })
-    //   },
-    //   error => {
-    //     debugger
-    //     console.log('error', error)
-    //   }
-    // )
+  getImagefromData = fileName => {
+    let image
+    try {
+      image = require(`./../Images/${fileName}`)
+    } catch (e) {
+      console.log(e)
+      image = require(`./../Images/placeholder_for_missing_posters.png`)
+    }
+    return image
   }
+
   render () {
-    console.log("videos", this.props.videoList)
-    console.log("rendering")
+    console.log('videos', this.props.videoList)
+    console.log('rendering')
     return (
       <div className='container'>
         <div className='navbar'>
@@ -66,21 +53,17 @@ class HomeComponent extends React.Component {
           />
         </div>
         <div className='list-container'>
-          <div className="scroll-list">
-          { this.props.videoList && this.props.videoList.map( (video, index) => {
-            let image;
-            try{
-              image = require(`./../Images/${video['poster-image']}`);
-            }
-            catch(e) {
-              console.log(e);
-              image = require(`./../Images/placeholder_for_missing_posters.png`);
-            }
-             return <div key={index} className="video-cell">
-                <img src={image} alt="image" />
-                <p className="video-name">{video.name}</p>
-              </div>
-          })}
+          <div className='scroll-list'>
+            {this.props.videoList &&
+              this.props.videoList.map((video, index) => {
+                const image = this.getImagefromData(video['poster-image'])
+                return (
+                  <div key={index} className='video-cell'>
+                    <img src={image} alt='image' />
+                    <p className='video-name'>{video.name}</p>
+                  </div>
+                )
+              })}
           </div>
         </div>
       </div>
@@ -88,24 +71,19 @@ class HomeComponent extends React.Component {
   }
 }
 
-// export const Home = HomeComponent
-
 const mapStateToProps = (state, ownProps) => {
-  console.log('eweed', state);
+  console.log('eweed', state)
   return {
-      heading: state.fetchData.heading,
-      videoList: state.fetchData.videoList,
-      totalVideos: state.fetchData.totalVideos
-};
-};
+    heading: state.fetchData.heading,
+    videoList: state.fetchData.videoList,
+    totalVideos: state.fetchData.totalVideos
+  }
+}
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchData: (params) =>{
-    console.log("inside mdp");
-    dispatch(fetch(params));
-  } 
-});
+  fetchData: params => {
+    console.log('inside mdp')
+    dispatch(fetch(params))
+  }
+})
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HomeComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeComponent)

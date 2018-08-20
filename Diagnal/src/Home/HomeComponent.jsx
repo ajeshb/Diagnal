@@ -4,23 +4,25 @@ import './HomeComponent.css'
 import { fetch } from '../Redux/actions'
 
 class HomeComponent extends React.Component {
-  constructor (props) {
-    super(props)
-    // this.state = {
-    //   heading: 'Romantic Commedy',
-    //   videoList: [],
-    //   totalVideos: 0
-    // }
-  }
+
+  currentPageNumber = 1;
+  
   componentDidMount () {
     console.log('fetchData', this.props.fetchData)
-    this.props.fetchData(1)
+    this.props.fetchData(this.currentPageNumber)
   }
-  showUser = () => {
-    this.props.fetchData(2)
 
+  showUser = () => {
+    if(this.props.videoList.length < parseInt(this.props.totalVideos))
+      this.fetchVideoList();
     console.log('videos', this.props.videoList)
   }
+
+  fetchVideoList = () => {
+    this.currentPageNumber++;
+    this.props.fetchData(this.currentPageNumber)
+  } 
+
   getImagefromData = fileName => {
     let image
     try {

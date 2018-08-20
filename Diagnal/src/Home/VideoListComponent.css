@@ -1,0 +1,30 @@
+.list-container{
+    margin-top: 67px;
+    z-index: 100;
+    background-color: #191919;
+    height: calc( 100vh - 94px);
+    overflow: scroll;
+}
+.video-cell{
+    margin-right: 15px;
+    width: calc(( 100% - 60px)/3);
+    display: inline-block;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+.video-cell:nth-child(3n+1){
+    margin-left: 15px
+}
+.video-cell img{
+    width: 100%;
+    background-image:url('./../Images/placeholder_for_missing_posters.png');
+}
+.video-name{
+    color: white;
+    font-weight: lighter;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    margin-top:12px;
+}

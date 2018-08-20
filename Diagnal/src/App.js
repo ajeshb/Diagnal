@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import Home from "./Home/HomeComponent";
 import { Route, Switch } from "react-router-dom";
 import { Provider } from 'react-redux'
+import Home from "./Home/HomeComponent";
 import configureStore from '../src/Redux/store'
 
-import logo from './logo.svg';
 import './App.css';
 
 const store = configureStore()

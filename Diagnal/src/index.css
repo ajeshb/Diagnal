@@ -1,3 +1,60 @@
+/* eslint-disable */
+
+.navbar {
+  background: transparent url("./Images/nav_bar.png");
+  height: 120px;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+}
+
+.back-button {
+  background: transparent url("./Images/back.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  float: left;
+  height: 23px;
+  width: 23px;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.heading {
+  color: #fff;
+  font-weight: 300;
+  text-align: left;
+  margin-top: 27px;
+  margin-left: 55px;
+  font-size: 27px;
+  width: calc(100% - 99px);
+}
+
+.search-button {
+  background: transparent url("./Images/search.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  top: 26px;
+  right: 21px;
+}
+
+.video-name {
+  color: #fff;
+  font-weight: 300;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 12px;
+}
+
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -625,11 +682,6 @@ table {
 }
 
 /* Here we can add any custom overrides */
-
-.navbar {
-  width: 100vw;
-  background-repeat: no-repeat;
-}
 
 .list-reset {
   list-style: none;

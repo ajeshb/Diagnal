@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import './HomeComponent.css'
 import { fetch } from '../Redux/actions'
 import VideoListComponent from './VideoListComponent'
 

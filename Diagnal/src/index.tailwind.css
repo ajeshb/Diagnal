@@ -1,10 +1,41 @@
+/* eslint-disable */
+
+.navbar {
+    background: transparent url("./Images/nav_bar.png");
+    height: 120px;
+    @apply .w-screen .bg-no-repeat .bg-cover .overflow-hidden .fixed .pin-t;
+  }
+.back-button{
+    background: transparent url("./Images/back.png");
+    @apply .bg-no-repeat .bg-cover .cursor-pointer .float-left;
+    height: 23px;
+    width: 23px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.heading{
+    @apply .text-white .font-light .text-left;
+    margin-top: 27px;
+    margin-left: 55px;
+    font-size: 27px;
+    width: calc(100% - 99px);
+}
+.search-button{
+    background: transparent url("./Images/search.png");
+    @apply .bg-cover .bg-no-repeat .cursor-pointer .absolute;
+    height: 28px;
+    width: 28px;
+    top: 26px;
+    right: 21px;
+}
+.video-name{
+  @apply .text-white .font-light .text-left .truncate;
+  margin-top:12px;
+}
+
 @tailwind preflight;
 
-/* Here we can add any custom overrides */
-.navbar {
-    @apply .w-screen .bg-no-repeat;
-  }
-
+  /* Here we can add any custom overrides */
 @tailwind utilities;
 
 /* Here we can add our own utilities or custom CSS */

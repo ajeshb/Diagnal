@@ -41,13 +41,13 @@ class VideoListComponent extends React.Component {
 
   render () {
     return (
-      <div className='list-container' onScroll={this.trackScrolling}>
+      <div className='list-container overflow-scroll' onScroll={this.trackScrolling}>
         <div className='scroll-list' id='scroll-panel'>
           {this.props.videos &&
             this.props.videos.map((video, index) => {
               const image = this.getImagefromData(video['poster-image'])
               return (
-                <div key={index} className='video-cell'>
+                <div key={index} className='video-cell inline-block'>
                   <img src={image} alt={video.name} />
                   <p className='video-name'>{video.name}</p>
                 </div>

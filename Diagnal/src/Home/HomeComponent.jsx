@@ -5,7 +5,7 @@ import VideoListComponent from './VideoListComponent'
 
 class HomeComponent extends React.Component {
   currentPageNumber = 1
-  isSearchState = false;
+  isSearchState = false
 
   constructor (props) {
     super(props)
@@ -21,12 +21,10 @@ class HomeComponent extends React.Component {
   }
 
   searchButtonClicked = () => {
-    if(this.state.searchString && this.state.showSearch){
-      this.setState({ showSearch: false });
-      this.getSearchData();
-    }
-    else if (!this.state.showSearch)
-      this.setState({ showSearch: true })
+    if (this.state.searchString && this.state.showSearch) {
+      this.setState({ showSearch: false })
+      this.getSearchData()
+    } else if (!this.state.showSearch) this.setState({ showSearch: true })
   }
 
   getSearchData = () => {
@@ -36,8 +34,7 @@ class HomeComponent extends React.Component {
   }
 
   backButtonClicked = () => {
-    this.setState({ showSearch: false, searchString: '' })
-    if(this.isSearchState){
+    if (this.state.showSearch) { this.setState({ showSearch: false, searchString: '' }) } else if (this.isSearchState) {
       this.currentPageNumber = 1
       this.props.fetchData(this.currentPageNumber)
     }
@@ -88,7 +85,6 @@ class HomeComponent extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log('eweed', state)
   return {
     heading: state.fetchVideoData.heading,
     videoList: state.fetchVideoData.videoList,
@@ -97,11 +93,10 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchData: pageNumber => {
-    console.log('inside mdp')
     dispatch(fetch({ pageNumber }))
   },
   search: (pageNumber, searchString) => {
-    dispatch(search({pageNumber, searchString}))
+    dispatch(search({ pageNumber, searchString }))
   }
 })
 

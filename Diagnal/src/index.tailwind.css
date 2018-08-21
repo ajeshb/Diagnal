@@ -20,6 +20,18 @@
     font-size: 27px;
     width: calc(100% - 99px);
 }
+.search-input{
+    @apply .text-white .font-light .text-left .absolute;
+    top: 21px;
+    left: 50px;
+    height: 40px;
+    background-color: black;
+    font-size: 22px;
+    width: calc(100% - 109px);
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding-left: 10px;
+}
 .search-button{
     background: transparent url("./Images/search.png");
     @apply .bg-cover .bg-no-repeat .cursor-pointer .absolute;

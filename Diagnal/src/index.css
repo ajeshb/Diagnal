@@ -33,6 +33,22 @@
   width: calc(100% - 99px);
 }
 
+.search-input {
+  color: #fff;
+  font-weight: 300;
+  text-align: left;
+  position: absolute;
+  top: 21px;
+  left: 50px;
+  height: 40px;
+  background-color: black;
+  font-size: 22px;
+  width: calc(100% - 109px);
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding-left: 10px;
+}
+
 .search-button {
   background: transparent url("./Images/search.png");
   background-size: cover;

@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux'
-import fetchData from './fetch_data'
-// import search from './search'
+import fetchVideoData from './fetch'
 
 export default combineReducers({
-  fetchData,
-//   search
+  fetchVideoData
 })

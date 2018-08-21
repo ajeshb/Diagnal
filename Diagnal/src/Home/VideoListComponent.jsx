@@ -42,8 +42,8 @@ class VideoListComponent extends React.Component {
   render () {
     return (
       <div className='list-container overflow-scroll' onScroll={this.trackScrolling}>
-        <div className='scroll-list' id='scroll-panel'>
-          {this.props.videos &&
+        {this.props.videos.length? <div className='scroll-list' id='scroll-panel'>
+          {
             this.props.videos.map((video, index) => {
               const image = this.getImagefromData(video['poster-image'])
               return (
@@ -53,7 +53,7 @@ class VideoListComponent extends React.Component {
                 </div>
               )
             })}
-        </div>
+        </div> : <p className="error-message w-screen text-centre text-white"> No Video to show </p>}
       </div>
     )
   }

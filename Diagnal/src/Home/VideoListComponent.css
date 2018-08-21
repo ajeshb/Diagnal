@@ -21,3 +21,4 @@
     font-size: 21px;
     margin-top: 60px;    
 }
+div:focus,input:focus {outline:0;}

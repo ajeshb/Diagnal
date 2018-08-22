@@ -33,12 +33,16 @@ class HomeComponent extends React.Component {
     this.currentPageNumber = 1
     this.isSearchState = true
     this.props.search(this.currentPageNumber, this.state.searchString)
+    document.getElementById('scroll-panel').scrollIntoView(true)
   }
 
   backButtonClicked = () => {
-    if (this.state.showSearch) { this.setState({ showSearch: false, searchString: '' }) } else if (this.isSearchState) {
+    if (this.state.showSearch) {
+      this.setState({ showSearch: false, searchString: '' })
+    } else if (this.isSearchState) {
       this.currentPageNumber = 1
       this.props.fetchData(this.currentPageNumber)
+      document.getElementById('scroll-panel').scrollIntoView(true)
     }
   }
 
@@ -54,21 +58,19 @@ class HomeComponent extends React.Component {
     return (
       <div className='container'>
         <div className='navbar'>
-          {/* <input
-            type='button'
-            name='button'
+          <img
+            className='back-button absolute'
+            src={BackImage}
+            alt='back-button'
             onClick={this.backButtonClicked}
-            className='back-button'
-          /> */}
-          <img className="back-button1" src={BackImage} alt="back-button" onClick={this.backButtonClicked}/>
+          />
           <h1 className='heading'>{this.props.heading}</h1>
-          <img className='search-button1' src={SearchImage} alt="back-button" onClick={this.searchButtonClicked} />
-          {/* <input
-            type='button'
-            name='button'
+          <img
+            className='search-button absolute'
+            src={SearchImage}
+            alt='back-button'
             onClick={this.searchButtonClicked}
-            className='search-button'
-          /> */}
+          />
           {this.state.showSearch
             ? <input
               className='search-input'

@@ -6,29 +6,15 @@
   z-index: 999;
   @apply .w-screen .bg-no-repeat .bg-cover .overflow-hidden .fixed .pin-t;
 }
-.back-button1 {
-    position: absolute;
+.back-button {
     width: 23px;
     top: 20px;
     left: 20px;
 }
-.search-button1 {
-    position: absolute;
+.search-button {
     width: 28px;
     top: 16px;
     right: 21px;
-}
-.back-button {
-  background: transparent url("./Images/back.png");
-  @apply .bg-no-repeat .bg-cover .cursor-pointer .float-left;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  background-attachment:scroll;
-  height: 23px;
-  width: 23px;
-  margin-top: 20px;
-  margin-left: 20px;
 }
 .heading {
   @apply .text-white .font-light .text-left .truncate;
@@ -52,18 +38,6 @@
   border: 1px solid gray;
   border-radius: 3px;
   padding-left: 10px;
-}
-.search-button {
-  background: transparent url("./Images/search.png");
-  @apply .bg-cover .bg-no-repeat .cursor-pointer .absolute;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  background-attachment:scroll;
-  height: 28px;
-  width: 28px;
-  top: 16px;
-  right: 21px;
 }
 .video-name {
   @apply .text-white .font-light .text-left .truncate;

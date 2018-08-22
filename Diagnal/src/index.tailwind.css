@@ -3,6 +3,7 @@
 .navbar {
   background: transparent url("./Images/nav_bar.png");
   height: 100px;
+  z-index: 999;
   @apply .w-screen .bg-no-repeat .bg-cover .overflow-hidden .fixed .pin-t;
 }
 .back-button1 {

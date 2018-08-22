@@ -3,6 +3,7 @@
 .navbar {
   background: transparent url("./Images/nav_bar.png");
   height: 100px;
+  z-index: 999;
   width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;

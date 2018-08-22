@@ -28,3 +28,4 @@ div:focus,
 input:focus {
   outline: 0;
 }
+* { -webkit-overflow-scrolling: touch; }

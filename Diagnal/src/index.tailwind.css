@@ -11,6 +11,7 @@
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
+  background-attachment:scroll;
   height: 23px;
   width: 23px;
   margin-top: 20px;
@@ -28,6 +29,7 @@
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
+  background-attachment:scroll;
   top: 11px;
   left: 50px;
   height: 40px;
@@ -44,6 +46,7 @@
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
+  background-attachment:scroll;
   height: 28px;
   width: 28px;
   top: 16px;

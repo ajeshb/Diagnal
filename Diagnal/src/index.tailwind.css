@@ -2,7 +2,7 @@
 
 .navbar {
   background: transparent url("./Images/nav_bar.png");
-  height: 120px;
+  height: 100px;
   @apply .w-screen .bg-no-repeat .bg-cover .overflow-hidden .fixed .pin-t;
 }
 .back-button {
@@ -10,19 +10,19 @@
   @apply .bg-no-repeat .bg-cover .cursor-pointer .float-left;
   height: 23px;
   width: 23px;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-left: 20px;
 }
 .heading {
   @apply .text-white .font-light .text-left .truncate;
-  margin-top: 27px;
+  margin-top: 17px;
   margin-left: 55px;
   font-size: 27px;
   width: calc(100% - 99px);
 }
 .search-input {
   @apply .text-white .font-light .text-left .absolute;
-  top: 21px;
+  top: 11px;
   left: 50px;
   height: 40px;
   background-color: black;
@@ -37,7 +37,7 @@
   @apply .bg-cover .bg-no-repeat .cursor-pointer .absolute;
   height: 28px;
   width: 28px;
-  top: 26px;
+  top: 16px;
   right: 21px;
 }
 .video-name {

@@ -2,7 +2,7 @@
 
 .navbar {
   background: transparent url("./Images/nav_bar.png");
-  height: 120px;
+  height: 100px;
   width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,7 +19,7 @@
   float: left;
   height: 23px;
   width: 23px;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-left: 20px;
 }
 
@@ -30,7 +30,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin-top: 27px;
+  margin-top: 17px;
   margin-left: 55px;
   font-size: 27px;
   width: calc(100% - 99px);
@@ -41,7 +41,7 @@
   font-weight: 300;
   text-align: left;
   position: absolute;
-  top: 21px;
+  top: 11px;
   left: 50px;
   height: 40px;
   background-color: black;
@@ -60,7 +60,7 @@
   position: absolute;
   height: 28px;
   width: 28px;
-  top: 26px;
+  top: 16px;
   right: 21px;
 }
 

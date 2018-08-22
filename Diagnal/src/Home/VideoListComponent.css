@@ -1,14 +1,14 @@
 .list-container {
-  margin-top: 67px;
+  margin-top: 57px;
   z-index: 100;
   background-color: #191919;
-  height: calc(100vh - 67px);
+  height: calc(100vh - 57px);
 }
 .video-cell {
   margin-right: 15px;
   width: calc((100% - 60px) / 3);
-  margin-top: 25px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
 .video-cell:nth-child(3n + 1) {
   margin-left: 15px;

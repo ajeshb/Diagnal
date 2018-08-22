@@ -1,9 +1,0 @@
-Search Feature: User can click search button to view search field.
-                After filling the search field, user can click the search icon to get the results.
-                User can go back to the full list by clicking back icon.
-Known Issues: 
-   1) Search is implemented with in the loaded data only. No api call is added. 
-   2) Data loading on scroll may have issues in very low network speed.
-      Network speed factor is not added in deciding the time of next api call. We can dynamically change multiple factor in this algorithm according to network speed.
-   3) No loading indicator added on search action.
-          

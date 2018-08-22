@@ -14,14 +14,14 @@ class VideoListComponent extends React.Component {
   trackScrolling = () => {
     if (this.props.isComplete || !this.isApiUpdated) return
     const wrappedElement = document.getElementById('scroll-panel')
-    if (this.isBottom(wrappedElement)) {
+    if (this.shouldCallApi(wrappedElement)) {
       this.oldOffset = undefined
       this.props.onScrollEnd()
       this.isApiUpdated = false
     }
   }
 
-  isBottom (element) {
+  shouldCallApi (element) {
     const bottomOffset =
       element.getBoundingClientRect().bottom - window.innerHeight
     const speedFactor = this.oldOffset ? (this.oldOffset - bottomOffset) *2 : 0 // TO HANDLE SCROLL SPEED

@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetch, search } from '../Redux/actions'
+import * as BackImage from './../Images/back.png'
+import * as SearchImage from './../Images/search.png'
 import VideoListComponent from './VideoListComponent'
 
 class HomeComponent extends React.Component {
@@ -52,19 +54,21 @@ class HomeComponent extends React.Component {
     return (
       <div className='container'>
         <div className='navbar'>
-          <input
+          {/* <input
             type='button'
             name='button'
             onClick={this.backButtonClicked}
             className='back-button'
-          />
+          /> */}
+          <img className="back-button1" src={BackImage} alt="back-button" onClick={this.backButtonClicked}/>
           <h1 className='heading'>{this.props.heading}</h1>
-          <input
+          <img className='search-button1' src={SearchImage} alt="back-button" onClick={this.searchButtonClicked} />
+          {/* <input
             type='button'
             name='button'
             onClick={this.searchButtonClicked}
             className='search-button'
-          />
+          /> */}
           {this.state.showSearch
             ? <input
               className='search-input'

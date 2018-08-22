@@ -5,6 +5,18 @@
   height: 100px;
   @apply .w-screen .bg-no-repeat .bg-cover .overflow-hidden .fixed .pin-t;
 }
+.back-button1 {
+    position: absolute;
+    width: 23px;
+    top: 20px;
+    left: 20px;
+}
+.search-button1 {
+    position: absolute;
+    width: 28px;
+    top: 16px;
+    right: 21px;
+}
 .back-button {
   background: transparent url("./Images/back.png");
   @apply .bg-no-repeat .bg-cover .cursor-pointer .float-left;

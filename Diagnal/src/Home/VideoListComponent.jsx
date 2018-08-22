@@ -24,13 +24,13 @@ class VideoListComponent extends React.Component {
   isBottom (element) {
     const bottomOffset =
       element.getBoundingClientRect().bottom - window.innerHeight
-    const speedFactor = this.oldOffset ? this.oldOffset - bottomOffset : 0 // TO HANDLE SCROLL SPEED
+    const speedFactor = this.oldOffset ? (this.oldOffset - bottomOffset) *2 : 0 // TO HANDLE SCROLL SPEED
     this.oldOffset = bottomOffset
     const cellHeight =
       element.clientHeight / Math.ceil(this.props.videos.length / 3) // HEIGHT OF EACH CELL (CELL HEIGHT + MARGIN)
     const offsetCheck = (this.props.videos.length % 3 ? 2 : 1) * cellHeight // API CALL IS MADE WHEN SCROLL REACHES THE LAST COMPLETE ROW
     const bufferHeight = 10 + speedFactor // THIS HEIGHT USES AS A BUFFER HEIGHT FOR API CALL
-    return bottomOffset - offsetCheck < bufferHeight
+    return (bottomOffset - offsetCheck < bufferHeight)
   }
 
   getImagefromData = fileName => {
@@ -63,7 +63,7 @@ class VideoListComponent extends React.Component {
             })}
           </div>
           : <p className='error-message w-screen text-centre text-white'>
-            {' '}No Video to show{' '}
+            No Video to show
           </p>}
       </div>
     )

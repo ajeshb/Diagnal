@@ -13,11 +13,11 @@ class App extends Component {
     return (
       <div className="App">
       <Switch>
-        <Route exact path="/" render={routeParams =>(
-          <Provider store={store}>
+        <Provider store={store}>
+          <Route exact path="/" render={routeParams =>(
             <Home />
-          </Provider>
           )} />
+        </Provider>
       </Switch>
     </div>
     );

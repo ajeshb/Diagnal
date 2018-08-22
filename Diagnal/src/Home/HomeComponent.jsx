@@ -58,7 +58,6 @@ class HomeComponent extends React.Component {
     return (
       <div className='container'>
         <div className='navbar'>
-<<<<<<< HEAD
           <img
             className='back-button absolute'
             src={BackImage}
@@ -72,11 +71,6 @@ class HomeComponent extends React.Component {
             alt='back-button'
             onClick={this.searchButtonClicked}
           />
-=======
-          <img className="back-button absolute" src={BackImage} alt="back-button" onClick={this.backButtonClicked}/>
-          <h1 className='heading'>{this.props.heading}</h1>
-          <img className='search-button absolute' src={SearchImage} alt="back-button" onClick={this.searchButtonClicked} />
->>>>>>> 80a88c4732efd706e30684cc535ce718b0ac48f8
           {this.state.showSearch
             ? <input
               className='search-input'

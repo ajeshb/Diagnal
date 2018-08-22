@@ -68,7 +68,7 @@ class VideoListComponent extends React.Component {
               const image = this.getImagefromData(video['poster-image'])
               return (
                 <div key={index} className='video-cell inline-block'>
-                  {/* <img src={image} alt={video.name} /> */}
+                  <img src={image} alt={video.name} />
                   {/* <LazyLoadImage
                   height={this.height}
                   width={this.width}
@@ -76,12 +76,12 @@ class VideoListComponent extends React.Component {
       alt={video.name}
       src={image} // use normal <img> attributes as props
        />      */}
-                 <LazyLoad height={this.height} loaderImage originalSrc={image} imageProps={{
+                 {/* <LazyLoad height={this.height} loaderImage originalSrc={image} imageProps={{
       src: PlaceholderImage,
       alt: "DR_MVMQ20Feb2015ouellet1024.jpg",
       ref: "image",
       className: "className"
-    }} />
+    }} /> */}
                   <p className='video-name'>{video.name}</p>
                 </div>
               )

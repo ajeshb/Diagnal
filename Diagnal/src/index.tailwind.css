@@ -8,6 +8,9 @@
 .back-button {
   background: transparent url("./Images/back.png");
   @apply .bg-no-repeat .bg-cover .cursor-pointer .float-left;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
   height: 23px;
   width: 23px;
   margin-top: 20px;
@@ -22,6 +25,9 @@
 }
 .search-input {
   @apply .text-white .font-light .text-left .absolute;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
   top: 11px;
   left: 50px;
   height: 40px;
@@ -35,6 +41,9 @@
 .search-button {
   background: transparent url("./Images/search.png");
   @apply .bg-cover .bg-no-repeat .cursor-pointer .absolute;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
   height: 28px;
   width: 28px;
   top: 16px;

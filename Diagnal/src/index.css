@@ -14,9 +14,12 @@
 .back-button {
   background: transparent url("./Images/back.png");
   background-repeat: no-repeat;
-  background-size: cover;
+          background-size: cover;
   cursor: pointer;
   float: left;
+     -moz-background-size: cover;
+  -webkit-background-size: cover;
+       -o-background-size: cover;
   height: 23px;
   width: 23px;
   margin-top: 20px;
@@ -41,6 +44,9 @@
   font-weight: 300;
   text-align: left;
   position: absolute;
+     -moz-background-size: cover;
+  -webkit-background-size: cover;
+       -o-background-size: cover;
   top: 11px;
   left: 50px;
   height: 40px;
@@ -54,10 +60,13 @@
 
 .search-button {
   background: transparent url("./Images/search.png");
-  background-size: cover;
+          background-size: cover;
   background-repeat: no-repeat;
   cursor: pointer;
   position: absolute;
+     -moz-background-size: cover;
+  -webkit-background-size: cover;
+       -o-background-size: cover;
   height: 28px;
   width: 28px;
   top: 16px;

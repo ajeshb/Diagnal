@@ -9,6 +9,8 @@
   width: calc((100% - 60px) / 3);
   margin-top: 15px;
   margin-bottom: 30px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .video-cell:nth-child(3n + 1) {
   margin-left: 15px;

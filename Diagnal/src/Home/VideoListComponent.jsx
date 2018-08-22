@@ -1,9 +1,20 @@
 import React from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import LazyLoad from 'react-image-lazy-load';
+import * as PlaceholderImage from './../Images/placeholder_for_missing_posters.png'
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import './VideoListComponent.css'
 
 class VideoListComponent extends React.Component {
   isApiUpdated = true // BOOLEAN VALUE USED TO TRACK API CALL WHEN SCROLLING
   oldOffset = undefined //  TO TRACK THE LAST SCROLL POINT
+
+  componentDidMount(){
+    // const element = document.getElementById('scroll-panel')
+    this.width = (window.innerWidth - 60)/3;
+    this.height = this.width * 3/ 2;
+    debugger;
+  }
 
   componentDidUpdate (prevProps) {
     if (prevProps.videos.length !== this.props.videos.length) {
@@ -30,7 +41,8 @@ class VideoListComponent extends React.Component {
       element.clientHeight / Math.ceil(this.props.videos.length / 3) // HEIGHT OF EACH CELL (CELL HEIGHT + MARGIN)
     const offsetCheck = (this.props.videos.length % 3 ? 2 : 1) * cellHeight // API CALL IS MADE WHEN SCROLL REACHES THE LAST COMPLETE ROW
     const bufferHeight = 10 + speedFactor // THIS HEIGHT USES AS A BUFFER HEIGHT FOR API CALL
-    return bottomOffset - offsetCheck < bufferHeight
+    console.log('cellHeight', cellHeight)
+    return (bottomOffset - offsetCheck < bufferHeight)
   }
 
   getImagefromData = fileName => {
@@ -56,7 +68,20 @@ class VideoListComponent extends React.Component {
               const image = this.getImagefromData(video['poster-image'])
               return (
                 <div key={index} className='video-cell inline-block'>
-                  <img src={image} alt={video.name} />
+                  {/* <img src={image} alt={video.name} /> */}
+                  {/* <LazyLoadImage
+                  height={this.height}
+                  width={this.width}
+                  effect="blur"
+      alt={video.name}
+      src={image} // use normal <img> attributes as props
+       />      */}
+                 <LazyLoad height={this.height} loaderImage originalSrc={image} imageProps={{
+      src: PlaceholderImage,
+      alt: "DR_MVMQ20Feb2015ouellet1024.jpg",
+      ref: "image",
+      className: "className"
+    }} />
                   <p className='video-name'>{video.name}</p>
                 </div>
               )

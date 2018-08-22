@@ -28,7 +28,8 @@ class VideoListComponent extends React.Component {
     this.oldOffset = bottomOffset
     const cellHeight =
       element.clientHeight / Math.ceil(this.props.videos.length / 3) // HEIGHT OF EACH CELL (CELL HEIGHT + MARGIN)
-    const offsetCheck = (this.props.videos.length % 3 ? 2 : 1) * cellHeight // API CALL IS MADE WHEN SCROLL REACHES THE LAST COMPLETE ROW
+    const offsetCheck = (this.props.videos.length % 3 ? 3 : 2) * cellHeight // API CALL IS MADE WHEN SCROLL REACHES THE SECOND LAST COMPLETE ROW  
+                                                                // SCROLL EFFICIENCY IS HIGH WITH HIGH `offsetCheck`. IT CAN BE INCREASED BY CHANGING MULTIPLE(2 AND 1) FACTOR 
     const bufferHeight = 10 + speedFactor // THIS HEIGHT USES AS A BUFFER HEIGHT FOR API CALL
     return (bottomOffset - offsetCheck < bufferHeight)
   }
